@@ -1,0 +1,26 @@
+<div>
+	<%= @restaurant.name %> <br>
+	<%= @restaurant.address %>, 
+	<%= @restaurant.city %>, 
+	<%= @restaurant.state %> 
+	<%= @restaurant.zip %> <br>
+	<%= @restaurant.description %>
+</div>
+<br>
+
+<div>
+	<%= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant) %>
+</div> <br>
+
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div> <br>
+<% end %>
+
+<ul>	
+	<% @reviews.each do |review| %>
+		<%= review.rating %> stars out of 5 <br>
+		<%= review.body %> <br>
+		<%= review.created_at.strftime("%B %d %Y") %> <p>
+	<% end %>
+</ul>
+

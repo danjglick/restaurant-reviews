@@ -1,0 +1,4 @@
+--color
+--order defined
+--require spec_helper
+--fail-fast

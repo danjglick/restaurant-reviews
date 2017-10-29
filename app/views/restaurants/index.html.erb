@@ -1,0 +1,17 @@
+<div>Dan's Restaurant Review Site<div><br>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div>
+	<%= link_to 'Add Restaurant', new_restaurant_path %>
+</div> <br>
+
+<ul>
+	<% @restaurants.each do |restaurant| %>
+		<li><%= link_to restaurant.name, restaurant_path(restaurant.id) %></li>
+	<% end %>	
+</ul>
+
+

@@ -1,0 +1,23 @@
+<div>Review <%= @restaurant.name %></div> <br>
+
+<%= form_for [@restaurant, @review] do |f| %>
+	<div class="field">
+		<%= f.label :rating, "Rating (1-5)"%>
+		<%= f.text_field :rating %>
+	</div>
+
+	<div class="field">
+		<%= f.label :body, "Body" %>
+		<%= f.text_field :body %>
+	</div> <br>
+
+	<div class="actions">
+		<%= f.submit "Add Review" %>
+	</div>
+<% end %>
+
+<% if @form_error %>
+	<% @form_error.each do |error| %>
+		<p><%= error %><p>
+	<% end %>
+<% end %>	
